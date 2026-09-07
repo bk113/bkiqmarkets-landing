@@ -28,6 +28,8 @@
     --brass-deep: #96762C;
     --rule: #D4CCB8;
     --card: #FBF7ED;
+    --up: #5C7A52;
+    --down: #A6462E;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -499,6 +501,167 @@
     background: var(--brass);
     color: var(--bone);
   }
+  /* AI Pulse section */
+  .ai-meta {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 28px;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .ai-stat-value {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 30px;
+    color: var(--ink);
+  }
+
+  .ai-stat-label {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .synthesis-card {
+    background: var(--card);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--brass);
+    padding: 28px 32px;
+    margin-bottom: 48px;
+  }
+
+  .synthesis-head {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--brass-deep);
+    margin-bottom: 14px;
+  }
+
+  .synthesis-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink-soft);
+    margin: 0;
+  }
+
+  .synthesis-disclaimer {
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    margin: 14px 0 0;
+  }
+
+  .layer-group {
+    margin-bottom: 40px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .layer-group:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .layer-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    margin-bottom: 10px;
+  }
+
+  .layer-name {
+    font-family: 'Fraunces', serif;
+    font-size: 19px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+
+  .layer-mini-stats {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.03em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .layer-blurb {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 0 0 16px;
+    max-width: 680px;
+  }
+
+  .ai-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+  .ai-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 600px;
+  }
+
+  .ai-table th {
+    text-align: right;
+    font-weight: 400;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 0 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .ai-table th:first-child, .ai-table th:nth-child(2) { text-align: left; }
+
+  .ai-table td {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--rule);
+    font-family: 'IBM Plex Mono', monospace;
+    text-align: right;
+    white-space: nowrap;
+    color: var(--ink-soft);
+  }
+
+  .ai-table td:first-child {
+    text-align: left;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .ai-table td:nth-child(2) {
+    text-align: left;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .up { color: var(--up); }
+  .down { color: var(--down); }
+
+  .ai-empty { color: var(--muted); font-size: 14px; }
+
+  .ai-cta { margin-top: 8px; }
 </style>
 </head>
 
@@ -510,6 +673,7 @@
     <ul>
       <li><a href="#framework">Framework</a></li>
       <li><a href="#methodology">Methodology</a></li>
+      <li><a href="#ai-pulse">AI Pulse</a></li>
       <li><a href="#disclosure">About</a></li>
       <li><a href="https://dashboard.bkiqmarkets.com" class="btn btn-ghost" style="padding: 10px 20px; font-size: 11px;">View Notes →</a></li>
     </ul>
@@ -612,6 +776,49 @@
           <span>Descriptive · Decomposable</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="ai-pulse">
+  <div class="container">
+    <div class="section-eyebrow">Applied</div>
+    <h2>The framework,<br><em>applied to AI markets.</em></h2>
+
+    <p class="lede" style="margin-bottom: 20px;">
+      A 19-instrument basket across the AI value chain — compute, custom silicon, foundry,
+      memory, hyperscalers, cloud compute, applications, power, and credit — refreshed daily
+      and grouped by layer, not by ETF. A single sector fund hides the overlap between where a
+      company sits and where its revenue actually comes from.
+    </p>
+
+    <div class="ai-meta" id="aiAsOf">Loading…</div>
+
+    <div class="stat-row">
+      <div class="stat">
+        <div class="ai-stat-value" id="aiBreadthVal">—</div>
+        <div class="ai-stat-label">% of basket above 50-day MA</div>
+      </div>
+      <div class="stat">
+        <div class="ai-stat-value" id="aiVolVal">—</div>
+        <div class="ai-stat-label">Basket vol, 21D annualised</div>
+      </div>
+    </div>
+
+    <div class="synthesis-card">
+      <div class="synthesis-head" id="aiSynthBadge">Synthesis</div>
+      <p class="synthesis-text" id="aiSynthText">Loading…</p>
+      <p class="synthesis-disclaimer" id="aiSynthDisclaimer"></p>
+    </div>
+
+    <div id="aiLayerGroups">
+      <div class="ai-empty">Waiting on first data refresh.</div>
+    </div>
+
+    <div class="ai-cta">
+      <a href="https://dashboard.bkiqmarkets.com/ai.html" class="btn btn-ghost">
+        Full AI investor notes — privates, circular deals, lessons <span class="arrow">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -742,6 +949,81 @@
     </div>
   </div>
 </footer>
+
+<script>
+async function loadAiPulse() {
+  try {
+    const res = await fetch('https://raw.githubusercontent.com/bk113/BK-Market-dashboard/main/docs/data/ai_pulse.json', { cache: 'no-store' });
+    const data = await res.json();
+
+    document.getElementById('aiAsOf').textContent = 'As of ' + data.as_of;
+    document.getElementById('aiBreadthVal').textContent =
+      data.basket_breadth_above_50dma_pct != null ? data.basket_breadth_above_50dma_pct + '%' : '—';
+    document.getElementById('aiVolVal').textContent =
+      data.basket_avg_ann_vol_21d_pct != null ? data.basket_avg_ann_vol_21d_pct + '%' : '—';
+
+    const commentary = data.commentary || {};
+    const genByLlm = commentary.generated_by === 'llm';
+    document.getElementById('aiSynthBadge').textContent =
+      genByLlm ? 'Synthesis · daily' : 'Synthesis unavailable this run';
+    document.getElementById('aiSynthText').textContent =
+      commentary.synthesis || 'No synthesis available for this run.';
+    document.getElementById('aiSynthDisclaimer').textContent =
+      genByLlm ? (commentary.disclaimer || '') : '';
+
+    const groupsEl = document.getElementById('aiLayerGroups');
+    if (!data.layers || data.layers.length === 0) {
+      groupsEl.innerHTML = '<div class="ai-empty">Waiting on first data refresh.</div>';
+      return;
+    }
+
+    const cls = v => v == null ? '' : (v >= 0 ? 'up' : 'down');
+    const fmt = v => v == null ? '—' : (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+    const fmtPlain = v => v == null ? '—' : v.toFixed(2) + '%';
+    const byTicker = {};
+    (data.constituents || []).forEach(r => { byTicker[r.ticker] = r; });
+
+    groupsEl.innerHTML = data.layers.map(layer => {
+      const rows = layer.tickers.map(t => byTicker[t]).filter(Boolean);
+      const rowsHtml = rows.map(row => `<tr>
+        <td>${row.ticker}</td>
+        <td>${row.etf || '—'}</td>
+        <td>${row.last != null ? row.last.toFixed(2) : '—'}</td>
+        <td class="${cls(row.chg_1d)}">${fmt(row.chg_1d)}</td>
+        <td class="${cls(row.chg_1m)}">${fmt(row.chg_1m)}</td>
+        <td class="${cls(row.chg_3m)}">${fmt(row.chg_3m)}</td>
+        <td>${fmtPlain(row.vol_21d_ann)}</td>
+        <td class="${cls(row.drawdown_90d)}">${fmt(row.drawdown_90d)}</td>
+      </tr>`).join('');
+
+      const miniStats = [
+        layer.breadth_above_50dma_pct != null ? layer.breadth_above_50dma_pct + '% > 50dma' : null,
+        layer.avg_chg_1m != null ? '1M avg ' + fmt(layer.avg_chg_1m) : null,
+        layer.avg_vol_21d_ann != null ? 'vol ' + fmtPlain(layer.avg_vol_21d_ann) : null,
+      ].filter(Boolean).join(' · ');
+
+      return `<div class="layer-group">
+        <div class="layer-head">
+          <span class="layer-name">${layer.name}</span>
+          <span class="layer-mini-stats">${miniStats}</span>
+        </div>
+        <p class="layer-blurb">${layer.blurb || ''}</p>
+        <div class="ai-table-scroll">
+        <table class="ai-table">
+          <thead><tr>
+            <th>Ticker</th><th>ETF</th><th>Last</th><th>1D</th><th>1M</th><th>3M</th><th>Vol (21D ann.)</th><th>90D DD</th>
+          </tr></thead>
+          <tbody>${rowsHtml}</tbody>
+        </table>
+        </div>
+      </div>`;
+    }).join('');
+  } catch (e) {
+    document.getElementById('aiAsOf').textContent = 'Data unavailable';
+  }
+}
+loadAiPulse();
+</script>
 
 </body>
 </html>
